@@ -3,7 +3,7 @@ import Services from "../components/Services";
 
 const services = () => {
   return (
-    <div className="h-[72vh]">
+    <div className="pt-20">
       <Services />
     </div>
   );

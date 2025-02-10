@@ -220,8 +220,7 @@ const Contact = () => {
               <div>
                 <button
                   type="submit"
-                  className="relative inline-flex items-center ml-24 md:ml-1 px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark transition-colors duration-300"
-                
+                  className="relative inline-flex items-center ml-20 md:ml-1 px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark transition-colors duration-300"
                 >
                   Nachricht senden
                 </button>
