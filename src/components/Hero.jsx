@@ -1,17 +1,16 @@
-'use client';
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import banner from "../assets/banner.jpg";
+import kombi from "../assets/kombi3.png";
+import caddy from "../assets/caddy2.png";
 const Hero = () => {
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage:
-          'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${banner})`,
       }}
     >
       {/* Gradient Overlay */}
@@ -21,7 +20,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="space-y-8"
         >
           <h1 className="text-3xl lg:text-6xl font-bold text-white">
@@ -30,15 +29,16 @@ const Hero = () => {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: 'easeOut', delay: 0.3 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
             className="text-gray-200 max-w-2xl mx-auto"
           >
-           "Transportdienst – Sicherheit und Schnelligkeit bei jeder Lieferung!" 🚛
+            "Transportdienst – Sicherheit und Schnelligkeit bei jeder
+            Lieferung!" 🚛
           </motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: 'easeOut', delay: 0.6 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
           >
             <a
               href="#about"
@@ -50,6 +50,24 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* 🚚 Imazhi i Kombit (animacion vetëm në fillim) */}
+      <motion.img
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.7 }}
+        src={kombi}
+        alt="Kombi"
+        className="absolute bottom-[-10px] md:bottom-[-12px] lg:bottom-[-190px] ml-[-11%] md:ml-[0%]  w-[100%] md:w-[100%] lg:w-[80%]"
+      />
+      <motion.img
+      initial={{ opacity: 0, x: 30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1.3, ease: "easeOut", delay: 1 }}
+        src={caddy}
+        alt="Kombi"
+        className="absolute bottom-[-9px]  ml-[35%] md:hidden w-[60%]"
+      />
     </section>
   );
 };
