@@ -24,8 +24,8 @@ const Hero = () => {
           transition={{ duration: 1, ease: 'easeOut' }}
           className="space-y-8"
         >
-          <h1 className="text-xl lg:text-6xl font-bold text-white">
-            Sicherer und schneller Transport
+          <h1 className="text-3xl lg:text-6xl font-bold text-white">
+            Jora Transportdienst
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -33,8 +33,7 @@ const Hero = () => {
             transition={{ duration: 1.2, ease: 'easeOut', delay: 0.3 }}
             className="text-gray-200 max-w-2xl mx-auto"
           >
-            Ihre zuverlässige Lösung für den Gütertransport in ganz Europa.
-            Professioneller und qualitativ hochwertiger Service seit 2010.
+           "Transportdienst – Sicherheit und Schnelligkeit bei jeder Lieferung!" 🚛
           </motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

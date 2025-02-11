@@ -12,7 +12,7 @@ const HowItWorks = () => {
 
   return (
     <section
-      className="py-12 relative bg-gradient-to-b from-white to-gray-50 overflow-hidden"
+      className="py-16 relative bg-gradient-to-b from-white to-gray-50 overflow-hidden"
       ref={sectionRef}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />

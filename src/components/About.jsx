@@ -1,5 +1,5 @@
 import React from "react";
-import images from "../assets/about.png";
+import images from "../assets/about22.png";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
@@ -10,7 +10,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-8 overflow-hidden bg-gradient-to-br from-white to-gray-100"
+      className="relative py-10 overflow-hidden bg-gradient-to-br from-white to-gray-100"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-8">

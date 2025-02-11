@@ -68,9 +68,11 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Adresse",
-      details: "Durrësstraße, Tirana, Albanien",
-    },
+      details: `Rathausplatz 22
+      52531 Übach-Palenberg`,
+    }
   ];
+
 
   return (
     <section id="contact" className="relative py-14 overflow-hidden">

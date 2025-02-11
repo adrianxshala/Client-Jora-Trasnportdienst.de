@@ -30,14 +30,14 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/1 backdrop-blur-3xl shadow-3xl" : "bg-transparent"
+        scrolled || isOpen ? "bg-white/30 backdrop-blur-md shadow-3xl" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo Section */}
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/">
+            <a href="/">
               <motion.img 
                 src={logo} 
                 alt="Logo" 
@@ -46,7 +46,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               />
-            </Link>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
@@ -93,7 +93,7 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="md:hidden bg-white/30 backdrop-blur-md shadow-lg rounded-xl p-4 absolute top-16 w-full left-0"
+          className="md:hidden bg-white/100 backdrop-blur-3xl shadow-2xl rounded-xl p-4 absolute top-16 w-full left-0"
         >
           <div className="space-y-2 text-center">
             {navLinks.map((link) => (
