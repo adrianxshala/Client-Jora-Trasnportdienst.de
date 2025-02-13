@@ -3,94 +3,60 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const Contact = () => {
+ 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    address:"",
+    tel:"",
+    access_key: "30b0de0d-5b53-4da2-9c80-d0e98bbe6828", // Replace with your Web3Forms Access Key
   });
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setResult("Sending....");
-    const formData = new FormData(event.target);
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
 
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrors({});
+    setSuccessMessage("");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      body: formData
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
-    if (data.success) {
-      setResult("Form Submitted Successfully");
-      event.target.reset();
+    if (result.success) {
+      setSuccessMessage("Your message has been sent successfully!");
+      setFormData({ name: "", email: "", message: "",address:"",tel:"", access_key: "30b0de0d-5b53-4da2-9c80-d0e98bbe6828" });
     } else {
-      console.log("Error", data);
-      setResult(data.message);
-    }
-  };
-
-  const [errors, setErrors] = useState({});
-
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.name.trim()) {
-      newErrors.name = "Name ist erforderlich";
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "E-Mail ist erforderlich";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "E-Mail ist ungültig";
-    }
-    if (!formData.message.trim()) {
-      newErrors.message = "Nachricht ist erforderlich";
-    }
-    return newErrors;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = validateForm();
-    if (Object.keys(newErrors).length === 0) {
-      // Hier würden Sie typischerweise die Formulardaten an einen Server senden.
-      console.log("Formular gesendet:", formData);
-      alert("Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.");
-      setFormData({ name: "", email: "", message: "" });
-    } else {
-      setErrors(newErrors);
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }));
+      setErrors(result.errors || { form: "There was an error sending the message." });
     }
   };
 
   const contactInfo = [
     {
       icon: Phone,
-      title: "Rufen Sie uns an",
+      title: "Call Us",
       details: "017643407297",
     },
     {
       icon: Mail,
-      title: "E-Mail",
+      title: "Email",
       details: "joratransportdienst@hotmail.com",
     },
     {
       icon: MapPin,
-      title: "Adresse",
+      title: "Address",
       details: `Rathausplatz 22
       52531 Übach-Palenberg`,
     }
@@ -103,7 +69,7 @@ const Contact = () => {
       <div className="absolute inset-0 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Abschnittsüberschrift */}
+        {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -115,7 +81,7 @@ const Contact = () => {
             <span className="relative inline-block">
               <span className="absolute inset-0 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light"></span>
               <span className="relative bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light">
-                Über uns
+              Kontaktieren Sie uns
               </span>
             </span>
           </motion.h2>
@@ -126,12 +92,12 @@ const Contact = () => {
             transition={{ delay: 0.6, duration: 1 }}
             className="text-lg text-gray-700 max-w-2xl mx-auto"
           >
-            Wir sind hier, um Ihnen bei all Ihren Fragen zu helfen.
+           Kontaktieren Sie uns – wir helfen Ihnen gerne weiter!"
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Kontaktinformationen */}
+          {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -165,7 +131,7 @@ const Contact = () => {
             })}
           </motion.div>
 
-          {/* Kontaktformular */}
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -173,35 +139,29 @@ const Contact = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
+              <input type="hidden" name="access_key" value={formData.access_key} />
+
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-900"
-                >
-                  Name
+                <label htmlFor="name" className="block text-sm font-medium text-gray-900">
+                Ihr Name
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Jora Transportdienst"
+                  placeholder="Ihr Name"
                   value={formData.name}
                   onChange={handleChange}
                   className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm bg-gray-100 text-gray-900 p-3 ${
                     errors.name ? "border-red-500" : ""
                   }`}
                 />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-500">{errors.name}</p>
-                )}
+                {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-900"
-                >
-                  E-Mail
+                <label htmlFor="email" className="block text-sm font-medium text-gray-900">
+                  Email
                 </label>
                 <input
                   type="email"
@@ -214,32 +174,59 @@ const Contact = () => {
                     errors.email ? "border-red-500" : ""
                   }`}
                 />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-                )}
+                {errors.email && <p className="mt-1 text-sm text-red-500">{errors.address}</p>}
+              </div>
+              <div>
+                <label htmlFor="address" className="block text-sm font-medium text-gray-900">
+                Adresse
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  placeholder="Adresse"
+                  value={formData.address}
+                  onChange={handleChange}
+                  className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm bg-gray-100 text-gray-900 p-3 ${
+                    errors.address ? "border-red-500" : ""
+                  }`}
+                />
+                {errors.address && <p className="mt-1 text-sm text-red-500">{errors.address}</p>}
+              </div>
+              <div>
+                <label htmlFor="address" className="block text-sm font-medium text-gray-900">
+                Telefonnummer
+                </label>
+                <input
+                  type="tel"
+                  id="tel"
+                  name="tel"
+                  placeholder="Telefonnummer eingeben"
+                  value={formData.tel}
+                  onChange={handleChange}
+                  className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm bg-gray-100 text-gray-900 p-3 ${
+                    errors.tel ? "border-red-500" : ""
+                  }`}
+                />
+                {errors.tel && <p className="mt-1 text-sm text-red-500">{errors.tel}</p>}
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-900"
-                >
-                  Nachricht
+                <label htmlFor="message" className="block text-sm font-medium text-gray-900">
+                Nachricht
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
-                  placeholder="Nachricht eingeben"
+                  placeholder="Geben Sie hier Ihre Bestellung oder Anfrage ein..."
                   value={formData.message}
                   onChange={handleChange}
                   className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm bg-gray-100 text-gray-900 p-3 ${
                     errors.message ? "border-red-500" : ""
                   }`}
                 />
-                {errors.message && (
-                  <p className="mt-1 text-sm text-red-500">{errors.message}</p>
-                )}
+                {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
               </div>
 
               <div>
@@ -250,6 +237,9 @@ const Contact = () => {
                   Nachricht senden
                 </button>
               </div>
+
+              {successMessage && <p className="text-green-500">{successMessage}</p>}
+              {errors.form && <p className="text-red-500">{errors.form}</p>}
             </form>
           </motion.div>
         </div>

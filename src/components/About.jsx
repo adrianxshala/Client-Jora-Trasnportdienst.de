@@ -15,9 +15,9 @@ export default function About() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-8">
           <motion.h2
-             initial={{ opacity: 0, y: 50 }}
-             animate={inView ? { opacity: 1, y: 0 } : {}}
-             transition={{ duration: 0.6, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900"
           >
             <span className="relative inline-block">
@@ -33,8 +33,9 @@ export default function About() {
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="text-gray-600 max-w-3xl mx-auto"
           >
-            Wir führen die Revolution im futuristischen Frachttransport mit
-            modernster Technologie und unvergleichlicher Zuverlässigkeit an.
+            Wir sind die Zukunft des modernen Transports und bieten innovative
+            Logistiklösungen mit hoher Effizienz und unübertroffener
+            Zuverlässigkeit.
           </motion.p>
         </div>
 

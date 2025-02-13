@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import banner from "../assets/banner.jpg";
 import kombi from "../assets/kombi3.png";
-import caddy from "../assets/caddy2.png";
+import caddy from "../assets/caddy3.png";
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative  h-[90vh] md:min-h-screen flex items-center justify-center bg-cover bg-center"
+      className="relative  h-screen md:min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${banner})`,
       
@@ -25,7 +25,7 @@ const Hero = () => {
           className="space-y-8"
         >
           <h1 className="text-3xl lg:text-6xl font-bold text-white">
-            Jora Transportdienst
+           Transportdienst Jora 
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -59,7 +59,7 @@ const Hero = () => {
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.7 }}
         src={kombi}
         alt="Kombi"
-        className="absolute bottom-[-19px] md:bottom-[-15px] lg:bottom-[-190px] ml-[-15%] md:ml-[0%]  w-[100%] md:w-[100%] lg:w-[80%]"
+        className="absolute bottom-[-23px] md:bottom-[-15px] lg:bottom-[-190px] ml-[-15%] md:ml-[0%]  w-[100%] md:w-[100%] lg:w-[80%]"
       />
       <motion.img
       initial={{ opacity: 0, x: 30 }}
@@ -67,7 +67,7 @@ const Hero = () => {
       transition={{ duration: 1.3, ease: "easeOut", delay: 1 }}
         src={caddy}
         alt="Kombi"
-        className="absolute bottom-[-9px]  ml-[35%] md:ml-[50%] w-[60%] md:w-[30%]"
+        className="absolute bottom-[-9px]  ml-[35%] md:ml-[50%] w-[55%] md:w-[30%]"
       />
     </section>
   );

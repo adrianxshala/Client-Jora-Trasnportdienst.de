@@ -119,7 +119,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className=" pt-5 border-t border-border text-gray-400 text-center text-sm text-muted-foreground">
+        <div className=" pt-3 mt-3 border-t border-border text-gray-400 text-center text-sm text-muted-foreground">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

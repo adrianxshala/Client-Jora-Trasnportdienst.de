@@ -65,10 +65,10 @@ const Navbar = () => {
                     to={link.path}
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                       location.pathname === link.path
-                        ? "text-primary font-semibold"
+                        ? "text-white font-semibold"
                         : scrolled
                         ? "bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light"
-                        : "text-gray-700 hover:text-primary"
+                        : "text-gray-400 hover:text-primary"
                     }`}
                   >
                     {link.title}

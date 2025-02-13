@@ -41,7 +41,7 @@ const Services = () => {
           <ServiceBox 
             icon={<Truck className="h-12 w-12 text-blue-500 mb-4" />} 
             title="Inlandstransport" 
-            description="Umfassende Abdeckung des albanischen Territoriums mit schnellem und sicherem Service." 
+            description="Umfassende Abdeckung des deutschen Territoriums mit schnellem und zuverlässigem Transportservice." 
             delay={0.4} 
           />
           <ServiceBox 
