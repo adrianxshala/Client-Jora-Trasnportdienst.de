@@ -8,13 +8,14 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+      className="relative  h-[90vh] md:min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${banner})`,
+      
       }}
     >
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-primary/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-primary/30 "  />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
@@ -58,7 +59,7 @@ const Hero = () => {
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.7 }}
         src={kombi}
         alt="Kombi"
-        className="absolute bottom-[-10px] md:bottom-[-12px] lg:bottom-[-190px] ml-[-11%] md:ml-[0%]  w-[100%] md:w-[100%] lg:w-[80%]"
+        className="absolute bottom-[-19px] md:bottom-[-15px] lg:bottom-[-190px] ml-[-15%] md:ml-[0%]  w-[100%] md:w-[100%] lg:w-[80%]"
       />
       <motion.img
       initial={{ opacity: 0, x: 30 }}
@@ -66,7 +67,7 @@ const Hero = () => {
       transition={{ duration: 1.3, ease: "easeOut", delay: 1 }}
         src={caddy}
         alt="Kombi"
-        className="absolute bottom-[-9px]  ml-[35%] md:hidden w-[60%]"
+        className="absolute bottom-[-9px]  ml-[35%] md:ml-[50%] w-[60%] md:w-[30%]"
       />
     </section>
   );
