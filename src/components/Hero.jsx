@@ -59,7 +59,7 @@ const Hero = () => {
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.7 }}
         src={kombi}
         alt="Kombi"
-        className="absolute bottom-[-23px] md:bottom-[-15px] lg:bottom-[-190px] ml-[-15%] md:ml-[0%]  w-[100%] md:w-[100%] lg:w-[80%]"
+        className="absolute bottom-[-23px] md:bottom-[-15px] lg:bottom-[-120px] ml-[-15%] md:ml-[0%]  w-[100%] md:w-[100%] lg:w-[80%]"
       />
       <motion.img
       initial={{ opacity: 0, x: 30 }}
@@ -67,7 +67,7 @@ const Hero = () => {
       transition={{ duration: 1.3, ease: "easeOut", delay: 1 }}
         src={caddy}
         alt="Kombi"
-        className="absolute bottom-[-9px]  ml-[35%] md:ml-[50%] w-[55%] md:w-[30%]"
+        className="absolute bottom-[-9px]  ml-[35%] md:ml-[50%] w-[55%] md:w-[30%] md:hidden"
       />
     </section>
   );

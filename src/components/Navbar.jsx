@@ -38,7 +38,7 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled || isOpen
-          ? "bg-white shadow-md"
+          ? "bg-white/70 backdrop-blur-sm shadow-md"
           : "bg-transparent"
       }`}
     >
@@ -60,7 +60,7 @@ const Navbar = () => {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-gray-700 hover:text-primary transition-all duration-300"
+                className="text-gray-400 hover:text-primary transition-all duration-300"
               >
                 {link.title}
               </button>
@@ -70,7 +70,10 @@ const Navbar = () => {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-gray-700"
+              className={`p-2 transition-all duration-300 ${
+                scrolled ? "text-black" : "text-white"
+              }`}
+              
               whileTap={{ scale: 0.9 }}
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
