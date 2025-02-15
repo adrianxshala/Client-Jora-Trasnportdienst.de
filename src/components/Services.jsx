@@ -71,7 +71,7 @@ const ServiceBox = ({ icon, title, description, delay }) => {
     <motion.div
       initial={{ opacity: 0, x: 20 }}
       whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay :0.3}}
+      transition={{ duration: 0.6}}
       viewport={{ once: true }}
       className="p-6 rounded-lg border border-gray-200 bg-white shadow hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
     >
