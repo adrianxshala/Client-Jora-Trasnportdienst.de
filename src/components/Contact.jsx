@@ -46,17 +46,17 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Call Us",
+      title: "Rufen Sie uns an",
       details: "017643407297",
     },
     {
       icon: Mail,
-      title: "Email",
+      title: "E-Mail",
       details: "joratransportdienst@hotmail.com",
     },
     {
       icon: MapPin,
-      title: "Address",
+      title: "Adresse",
       details: `Rathausplatz 22
       52531 Übach-Palenberg`,
     }
@@ -143,7 +143,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-900">
-                Ihr Name
+                Name
                 </label>
                 <input
                   type="text"
@@ -161,7 +161,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-900">
-                  Email
+                E-mail
                 </label>
                 <input
                   type="email"
