@@ -13,20 +13,21 @@ export default function About() {
       className="relative py-10 overflow-hidden bg-gradient-to-br from-white to-gray-100"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900"
-          >
-            <span className="relative inline-block">
-              <span className="absolute inset-0 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light"></span>
-              <span className="relative bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light">
-                Über uns
-              </span>
-            </span>
-          </motion.h2>
+        <header className="text-center mb-8">
+        <motion.h2
+  initial={{ opacity: 0, y: 50 }}
+  animate={inView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900"
+>
+  <span className="relative inline-block">
+    <span className="absolute inset-0 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light"></span>
+    <span className="relative bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light">
+      Über uns
+    </span>
+  </span>
+</motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -34,10 +35,9 @@ export default function About() {
             className="text-gray-600 max-w-3xl mx-auto"
           >
             Wir sind die Zukunft des modernen Transports und bieten innovative
-            Logistiklösungen mit hoher Effizienz und unübertroffener
-            Zuverlässigkeit.
+            Logistiklösungen mit hoher Effizienz und unübertroffener Zuverlässigkeit.
           </motion.p>
-        </div>
+        </header>
 
         <div
           ref={ref}
@@ -58,6 +58,7 @@ export default function About() {
                 <div className="mt-2 text-sm text-gray-600">
                   Tägliche Lieferungen
                 </div>
+                <span className="sr-only">500 tägliche Lieferungen</span>
               </motion.div>
               <motion.div className="relative p-6 rounded-3xl border border-gray-200 bg-white shadow-md">
                 <div className="text-4xl font-extrabold text-purple-500">
@@ -66,6 +67,7 @@ export default function About() {
                 <div className="mt-2 text-sm text-gray-600">
                   Pünktliche Lieferquote
                 </div>
+                <span className="sr-only">98% pünktliche Lieferquote</span>
               </motion.div>
               <motion.div className="relative p-6 rounded-3xl border border-gray-200 bg-white shadow-md">
                 <div className="text-4xl font-extrabold text-green-500">
@@ -74,6 +76,7 @@ export default function About() {
                 <div className="mt-2 text-sm text-gray-600">
                   Zufriedene Kunden
                 </div>
+                <span className="sr-only">1200 zufriedene Kunden</span>
               </motion.div>
               <motion.div className="relative p-6 rounded-3xl border border-gray-200 bg-white shadow-md">
                 <div className="text-4xl font-extrabold text-yellow-500">
@@ -82,6 +85,7 @@ export default function About() {
                 <div className="mt-2 text-sm text-gray-600">
                   Jahre im Geschäft
                 </div>
+                <span className="sr-only">15 Jahre im Geschäft</span>
               </motion.div>
             </div>
 
@@ -112,7 +116,9 @@ export default function About() {
           >
             <img
               src={images}
-              alt="Futuristische Lagerbetriebe"
+              alt="Transportdienst Jora – Über uns"
+              title="Transportdienst Jora – Über uns"
+              loading="lazy"
               className="relative rounded-xl shadow-2xl"
             />
           </motion.div>

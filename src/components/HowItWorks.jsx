@@ -4,7 +4,6 @@ import { useInView } from 'react-intersection-observer';
 import { ClipboardList, Truck, Package, CheckCircle } from 'lucide-react';
 
 const HowItWorks = () => {
-  // useInView for the overall section (title & connecting line)
   const [sectionRef, sectionInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -17,19 +16,24 @@ const HowItWorks = () => {
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={sectionInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-4xl font-bold sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light">
+        <header className="text-center mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            animate={sectionInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-4xl font-bold sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light"
+          >
             Wie wir arbeiten
-          </h2>
-          <p className="mt-4 text-xl text-gray-600">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            animate={sectionInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="mt-4 text-xl text-gray-600"
+          >
             Unser einfacher und effizienter Prozess zur Erfüllung Ihrer Bedürfnisse.
-          </p>
-        </motion.div>
+          </motion.p>
+        </header>
 
         <div className="relative">
           <motion.div
@@ -92,7 +96,7 @@ const Step = ({ Icon, title, description }) => {
           whileHover={{ scale: 1.1 }}
         >
           <div className="absolute inset-0 flex items-center justify-center -rotate-45">
-            <Icon className="w-8 h-8 text-white" />
+            <Icon className="w-8 h-8 text-white" title={title} aria-label={title} />
           </div>
         </motion.div>
       </div>

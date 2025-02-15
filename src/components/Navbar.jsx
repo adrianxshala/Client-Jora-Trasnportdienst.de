@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/logo png.png"; // Ensure the path is correct
+import logo from "../assets/logo png.png";
 import logowhite from "../assets/llogo png e bardh.png";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -44,10 +44,10 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" onClick={() => scrollToSection("home")}>
+          <a href="#home" onClick={() => scrollToSection("home")}>
             <motion.img
               src={scrolled ? logowhite : logo}
-              alt="Logo"
+              alt="Transportdienst Jora Logo"
               className="w-40 h-36 transition-all duration-300"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -57,23 +57,25 @@ const Navbar = () => {
 
           <div className="hidden md:flex space-x-6">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.id}
+                href={`#${link.id}`}
                 onClick={() => scrollToSection(link.id)}
                 className="text-gray-400 hover:text-primary transition-all duration-300"
+                title={`Go to ${link.title}`}
               >
                 {link.title}
-              </button>
+              </a>
             ))}
           </div>
 
           <div className="md:hidden">
             <motion.button
+              aria-label="Toggle menu"
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 transition-all duration-300 ${
                 scrolled ? "text-black" : "text-white"
               }`}
-              
               whileTap={{ scale: 0.9 }}
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
@@ -93,13 +95,15 @@ const Navbar = () => {
           >
             <div className="flex flex-col space-y-3 text-center">
               {navLinks.map((link) => (
-                <button
+                <a
                   key={link.id}
+                  href={`#${link.id}`}
                   onClick={() => scrollToSection(link.id)}
                   className="py-2 text-gray-700 hover:text-primary"
+                  title={`Go to ${link.title}`}
                 >
                   {link.title}
-                </button>
+                </a>
               ))}
             </div>
           </motion.div>
@@ -110,6 +114,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
