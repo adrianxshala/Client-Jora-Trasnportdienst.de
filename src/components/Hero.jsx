@@ -34,7 +34,7 @@ const Hero = () => {
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
               className="text-gray-200 max-w-2xl mx-auto"
             >
-              "Transportdienst – Sicherheit und Schnelligkeit bei jeder Lieferung!" 🚛
+             Express / Briefzustellung – Schnelle und zuverlässige Zustellung Ihrer Briefe und Pakete, sicher und termingerecht. 🚛
             </motion.p>
           </header>
           <motion.div
