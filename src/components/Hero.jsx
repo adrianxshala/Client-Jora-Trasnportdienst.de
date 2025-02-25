@@ -26,7 +26,7 @@ const Hero = () => {
         >
           <header className="space-y-8">
             <h1 className="text-3xl lg:text-6xl font-bold text-white">
-              Transportdienst Jora
+            Jora Transportdienst 
             </h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
