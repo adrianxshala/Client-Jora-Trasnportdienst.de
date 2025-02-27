@@ -46,11 +46,13 @@ const HowItWorks = () => {
 
           <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
             {/* Step 1 */}
-            <Step
-              Icon={ClipboardList}
-              title="Bestellung"
-              description="Füllen Sie das Online-Formular aus oder kontaktieren Sie uns direkt, um Ihre Bestellung aufzugeben."
-            />
+            <a href="#contact">
+              <Step
+                Icon={ClipboardList}
+                title="Bestellung"
+                description="Füllen Sie das Online-Formular aus oder kontaktieren Sie uns direkt, um Ihre Bestellung aufzugeben."
+              />
+            </a>
 
             {/* Step 2 */}
             <Step
